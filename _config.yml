@@ -1,3 +1,4 @@
 plugins:
   - jekyll-redirect-from
 include: [".well-known"]
+source: dist
