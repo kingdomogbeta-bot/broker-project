@@ -105,7 +105,7 @@ export default function ContactPage() {
             <div className="bg-slate-800 rounded-lg border border-slate-700 p-6">
               <p className="text-2xl mb-2">📧</p>
               <h3 className="text-white font-semibold mb-2">Email</h3>
-              <p className="text-slate-400">support@brokerhub.com</p>
+              <p className="text-slate-400">support@aurexcapital.com</p>
               <p className="text-slate-400 text-sm mt-2">Response time: Within 24 hours</p>
             </div>
 

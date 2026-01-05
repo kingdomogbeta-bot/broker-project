@@ -3,8 +3,18 @@ import Card from '../components/Card';
 import MarketChart from '../components/MarketChart';
 import TrustSection from '../components/TrustSection';
 import LivePricing from '../components/LivePricing';
+import MarketFeed from '../components/MarketFeed';
+import AISignals from '../components/AISignals';
 import Testimonials from '../components/Testimonials';
 import Newsletter from '../components/Newsletter';
+import Plans from '../components/Plans';
+import ComparisonTool from '../components/ComparisonTool';
+import SecurityCompliance from '../components/SecurityCompliance';
+import EducationHub from '../components/EducationHub';
+import AdvancedSocialProof from '../components/AdvancedSocialProof';
+import TradingSimulator from '../components/TradingSimulator';
+import ReferralEngagement from '../components/ReferralEngagement';
+import PerformanceStats from '../components/PerformanceStats';
 
 const mockMarkets = [
   { symbol: 'AAPL', price: '$186.23', change: 2.5, chartData: [100, 105, 102, 108, 115, 112, 120] },
@@ -22,7 +32,7 @@ export default function HomePage({ onNavigate }) {
         <div className="relative max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
-            <div>
+            <div data-aos="fade-right">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                 Trade <span className="text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text">Smarter</span>, Earn <span className="text-transparent bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text">Better</span>
               </h1>
@@ -61,7 +71,7 @@ export default function HomePage({ onNavigate }) {
             </div>
 
             {/* Right Illustration */}
-            <div className="relative">
+            <div className="relative" data-aos="fade-left">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-2xl blur-2xl opacity-20" />
               <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700">
                 <div className="space-y-4">
@@ -83,21 +93,29 @@ export default function HomePage({ onNavigate }) {
       {/* Market Overview */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-12">
+          <div className="mb-12" data-aos="fade-up">
             <h2 className="text-3xl font-bold text-white mb-2">Live Markets</h2>
             <p className="text-slate-400">Real-time data from global financial markets</p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {mockMarkets.map((market, idx) => (
-              <MarketChart
-                key={idx}
-                symbol={market.symbol}
-                price={market.price}
-                change={market.change}
-                chartData={market.chartData}
-              />
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="lg:col-span-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {mockMarkets.map((market, idx) => (
+                  <div key={idx} data-aos="fade-up" data-aos-delay={idx * 100}>
+                    <MarketChart
+                      symbol={market.symbol}
+                      price={market.price}
+                      change={market.change}
+                      chartData={market.chartData}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="lg:col-span-1 space-y-4">
+              <MarketFeed />
+              <AISignals />
+            </div>
           </div>
         </div>
       </section>
@@ -105,109 +123,90 @@ export default function HomePage({ onNavigate }) {
       {/* Features Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">Why Choose BrokerHub?</h2>
+          <div className="text-center mb-16" data-aos="fade-up">
+            <h2 className="text-4xl font-bold text-white mb-4">Why Choose Aurex Capital?</h2>
             <p className="text-slate-400 text-lg">Everything you need to trade like a professional</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card
-              icon="⚡"
-              title="Lightning Fast"
-              description="Execute trades in milliseconds with our high-performance infrastructure"
-              features={['Sub-millisecond latency', 'Global servers', 'Uptime guarantee']}
-              cta="Learn More"
-            />
-            <Card
-              icon="🛡️"
-              title="Secure & Regulated"
-              description="Your funds are protected with enterprise-grade security"
-              features={['SSL/TLS encryption', 'Fund segregation', 'Regulatory compliance']}
-              cta="Learn More"
-              highlighted
-            />
-            <Card
-              icon="📊"
-              title="Advanced Tools"
-              description="Professional-grade charting and analysis tools included"
-              features={['250+ indicators', 'Custom alerts', 'Multi-chart analysis']}
-              cta="Learn More"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">Simple, Transparent Pricing</h2>
-            <p className="text-slate-400 text-lg">No hidden fees. Just pure trading.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card
-              title="Starter"
-              description="Perfect for beginners"
-              features={['$0 account opening', 'Mini contracts', 'Basic charting', 'Email support']}
-              cta="Sign Up"
-              onClick={() => onNavigate('register')}
-            />
-            <Card
-              title="Professional"
-              description="For serious traders"
-              features={['$0 account opening', 'Full contracts', 'Advanced tools', '24/7 support']}
-              cta="Sign Up"
-              onClick={() => onNavigate('register')}
-              highlighted
-            />
-            <Card
-              title="Enterprise"
-              description="For institutions"
-              features={['Dedicated support', 'Custom solutions', 'API access', 'Risk management']}
-              cta="Contact Sales"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl p-12 border border-cyan-400">
-            <div className="relative z-10">
-              <h2 className="text-3xl font-bold text-white mb-4">Ready to Start Trading?</h2>
-              <p className="text-blue-50 mb-8">Join our community of successful traders and get exclusive welcome bonus.</p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button
-                  onClick={() => onNavigate('register')}
-                  className="px-8 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-all"
-                >
-                  Create Account
-                </button>
-                <button
-                  onClick={() => onNavigate('login')}
-                  className="px-8 py-3 bg-blue-700 text-white rounded-lg font-semibold hover:bg-blue-800 transition-all"
-                >
-                  Sign In
-                </button>
-              </div>
+            <div data-aos="fade-up" data-aos-delay="0">
+              <Card
+                icon="⚡"
+                title="Lightning Fast"
+                description="Execute trades in milliseconds with our high-performance infrastructure"
+                features={['Sub-millisecond latency', 'Global servers', 'Uptime guarantee']}
+                cta="Learn More"
+              />
+            </div>
+            <div data-aos="fade-up" data-aos-delay="100">
+              <Card
+                icon="🛡️"
+                title="Secure & Regulated"
+                description="Your funds are protected with enterprise-grade security"
+                features={['SSL/TLS encryption', 'Fund segregation', 'Regulatory compliance']}
+                cta="Learn More"
+                highlighted
+              />
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200">
+              <Card
+                icon="📊"
+                title="Advanced Tools"
+                description="Professional-grade charting and analysis tools included"
+                features={['250+ indicators', 'Custom alerts', 'Multi-chart analysis']}
+                cta="Learn More"
+              />
             </div>
           </div>
         </div>
       </section>
 
+      {/* Plans Section - Full Professional Pricing */}
+      <Plans />
+
+      {/* Trading Simulator */}
+      <TradingSimulator />
+
+      {/* Advanced Social Proof */}
+      <AdvancedSocialProof />
+
+      {/* Comparison Tool */}
+      <ComparisonTool />
+
+      {/* Education Hub */}
+      <EducationHub />
+
+      {/* Security & Compliance */}
+      <SecurityCompliance />
+
+      {/* Performance Stats */}
+      <PerformanceStats />
+
+      {/* Referral & Engagement */}
+      <ReferralEngagement />
+
       {/* Live Pricing */}
-      <LivePricing />
+      <div data-aos="fade-up">
+        <LivePricing />
+      </div>
 
       {/* Trust Section */}
-      <TrustSection />
+      <div data-aos="fade-up">
+        <TrustSection />
+      </div>
 
       {/* Testimonials */}
-      <Testimonials />
+      <div data-aos="fade-up">
+        <Testimonials />
+      </div>
 
       {/* Newsletter */}
-      <Newsletter />
+      <div data-aos="fade-up">
+        <Newsletter />
+      </div>
+      <div data-aos="fade-up">
+        <Newsletter />
+      </div>
     </div>
   );
 }

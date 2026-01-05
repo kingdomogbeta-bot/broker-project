@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ChatBot from './components/ChatBot';
@@ -14,6 +16,29 @@ function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
+
+  // Initialize AOS animations
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+      offset: 100,
+      easing: 'ease-in-out',
+    });
+
+    // Check for secret admin access via query parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('access') === 'admin-panel-2024') {
+      setCurrentPage('admin-login');
+      // Clean URL
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  }, []);
+
+  // Refresh AOS on page change
+  useEffect(() => {
+    AOS.refresh();
+  }, [currentPage]);
 
   const handleNavigation = (page) => {
     if (page === 'logout') {
@@ -31,6 +56,34 @@ function App() {
       setCurrentPage(page);
     }
   };
+
+  // Global SPA navigation: listen for `app:navigate` events from components
+  // Components can dispatch: window.dispatchEvent(new CustomEvent('app:navigate', { detail: 'dashboard' }))
+  // This keeps navigation decoupled and lets buttons trigger navigation without prop drilling.
+  useEffect(() => {
+    const handler = (e) => {
+      const target = e && e.detail;
+      if (target) handleNavigation(target);
+    };
+
+    window.addEventListener('app:navigate', handler);
+
+    // Click delegation: buttons with data-to="page" will navigate the SPA
+    const clickDelegate = (ev) => {
+      const btn = ev.target.closest && ev.target.closest('[data-to]');
+      if (btn) {
+        const dest = btn.getAttribute('data-to');
+        if (dest) handleNavigation(dest);
+      }
+    };
+
+    document.addEventListener('click', clickDelegate);
+
+    return () => {
+      window.removeEventListener('app:navigate', handler);
+      document.removeEventListener('click', clickDelegate);
+    };
+  }, []);
 
   const renderPage = () => {
     switch (currentPage) {
@@ -51,6 +104,8 @@ function App() {
         return <HomePage onNavigate={handleNavigation} />;
     }
   };
+
+  const isAdminPage = false;
 
   return (
     <div className="min-h-screen bg-slate-950">

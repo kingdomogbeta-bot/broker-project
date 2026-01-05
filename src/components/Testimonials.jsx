@@ -8,7 +8,7 @@ const Testimonials = () => {
       role: 'Professional Trader',
       image: '👩‍💼',
       rating: 5,
-      text: 'BrokerHub has transformed my trading experience. The platform is intuitive, fast, and their support team is incredibly responsive!',
+      text: 'Aurex Capital has transformed my trading experience. The platform is intuitive, fast, and their support team is incredibly responsive!',
       verified: true,
     },
     {
@@ -26,7 +26,7 @@ const Testimonials = () => {
       role: 'Crypto Enthusiast',
       image: '👩‍🦰',
       rating: 5,
-      text: 'The best part? Real-time market data and instant execution. Been trading with BrokerHub for 2 years now without issues.',
+      text: 'The best part? Real-time market data and instant execution. Been trading with Aurex Capital for 2 years now without issues.',
       verified: true,
     },
     {
@@ -119,7 +119,7 @@ const Testimonials = () => {
         {/* Featured Review */}
         <div className="bg-gradient-to-r from-blue-600/20 to-cyan-500/20 border border-cyan-500/30 rounded-lg p-8 text-center">
           <p className="text-slate-300 text-lg mb-4 italic">
-            "BrokerHub isn't just a trading platform, it's a game-changer for retail traders. The combination of low fees, great tools, and exceptional support is unbeatable."
+            "Aurex Capital isn't just a trading platform, it's a game-changer for retail traders. The combination of low fees, great tools, and exceptional support is unbeatable."
           </p>
           <p className="text-white font-semibold">
             — Featured on TradingView, Trustpilot, and Forbes

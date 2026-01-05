@@ -7,7 +7,7 @@ export default function AboutPage() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-16 text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">About BrokerHub</h1>
+          <h1 className="text-4xl font-bold text-white mb-4">About Aurex Capital</h1>
           <p className="text-slate-400 text-lg max-w-3xl mx-auto">
             Pioneering financial innovation since 2018. We've been committed to democratizing access to global markets.
           </p>
@@ -18,7 +18,7 @@ export default function AboutPage() {
           <div>
             <h2 className="text-2xl font-bold text-white mb-4">Our Story</h2>
             <p className="text-slate-400 mb-4">
-              Founded in 2018, BrokerHub was created with a simple mission: to make professional trading accessible to everyone.
+              Founded in 2018, Aurex Capital was created with a simple mission: to make professional trading accessible to everyone with AI-powered tools and institutional-grade execution.
             </p>
             <p className="text-slate-400 mb-4">
               We started with a small team of passionate traders and developers who believed that technology could revolutionize how people invest and trade.

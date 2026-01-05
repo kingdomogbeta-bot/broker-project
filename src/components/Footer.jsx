@@ -7,9 +7,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Company */}
           <div>
-            <h3 className="text-white font-bold mb-4">BrokerHub</h3>
+            <h3 className="text-white font-bold mb-4">Aurex Capital</h3>
             <p className="text-slate-400 text-sm">
-              Leading financial brokerage platform for global trading and investment management.
+              Leading financial brokerage platform for global trading and AI-powered strategies.
             </p>
           </div>
 
@@ -39,8 +39,8 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li>📧 support@brokerhub.com</li>
-              <li>📞 +1 (800) 123-4567</li>
+              <li>📧 support@aurexcapital.com</li>
+              <li>📞 +1 873-744-6276</li>
               <li>📍 123 Financial St, NY 10001</li>
               <li className="flex gap-4 pt-2">
                 <a href="#" className="hover:text-blue-400 transition">Twitter</a>
@@ -54,7 +54,7 @@ export default function Footer() {
         <div className="border-t border-slate-800 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-slate-400 text-sm">
-              © 2024 BrokerHub. All rights reserved.
+              © 2025 Aurex Capital. All rights reserved.
             </p>
             <p className="text-slate-500 text-xs mt-4 md:mt-0">
               Disclaimer: Trading and investing involve substantial risk. Past performance is not indicative of future results.

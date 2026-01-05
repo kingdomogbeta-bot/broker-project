@@ -13,10 +13,19 @@ export default function Header({ isLoggedIn, onNavigate, currentPage }) {
             className="cursor-pointer flex items-center gap-2 group"
           >
             <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center transform group-hover:scale-110 transition-transform">
-              <span className="text-white font-bold text-lg">Ƃ</span>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                <defs>
+                  <linearGradient id="g1" x1="0" x2="1">
+                    <stop offset="0%" stopColor="#60A5FA" />
+                    <stop offset="100%" stopColor="#06B6D4" />
+                  </linearGradient>
+                </defs>
+                <rect x="3" y="3" width="18" height="18" rx="4" fill="url(#g1)" />
+                <path d="M7 16L12 8L17 16" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </div>
             <span className="text-xl font-bold text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text">
-              BrokerHub
+              Aurex Capital
             </span>
           </div>
 
@@ -49,7 +58,7 @@ export default function Header({ isLoggedIn, onNavigate, currentPage }) {
           </nav>
 
           {/* Auth Buttons */}
-          <div className="hidden md:flex gap-4">
+          <div className="hidden md:flex gap-4 items-center">
             {isLoggedIn ? (
               <>
                 <button

@@ -5,6 +5,9 @@ export default function Button({
   variant = 'primary', 
   size = 'md', 
   className = '',
+  to, // internal SPA navigation key
+  href, // external link
+  target, // link target
   ...props 
 }) {
   const baseStyles = 'font-semibold rounded-lg transition-all transform hover:scale-105 disabled:hover:scale-100';
@@ -23,9 +26,20 @@ export default function Button({
     lg: 'px-6 py-3 text-lg',
   };
 
+  const handleClick = (e) => {
+    if (props.onClick) props.onClick(e);
+    if (to) {
+      window.dispatchEvent(new CustomEvent('app:navigate', { detail: to }));
+    } else if (href) {
+      if (target === '_blank') window.open(href, '_blank');
+      else window.location.href = href;
+    }
+  };
+
   return (
     <button
       className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
+      onClick={handleClick}
       {...props}
     >
       {children}
